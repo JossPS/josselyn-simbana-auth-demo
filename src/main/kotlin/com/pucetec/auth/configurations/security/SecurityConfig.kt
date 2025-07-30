@@ -19,7 +19,7 @@ class SecurityConfig {
                 auth
                     .requestMatchers("/api/health").permitAll()
                     .requestMatchers("/api/admin/**").hasAuthority("ADMINS")
-                    .requestMatchers("/api/secure-data").hasAnyAuthority("ADMINS", "SUPERUSERS")
+                    .requestMatchers("/api/secure-data").hasAnyAuthority("USERS", "SUPERUSERS")
             }
             .oauth2ResourceServer { oauth2 ->
                 oauth2.jwt { Customizer.withDefaults<JwtDecoder>() }
